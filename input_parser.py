@@ -1,19 +1,30 @@
 import tensorflow as tf
 import pandas as pd
 import numpy as np
+import abc
+
+class DataProvider(abc.ABC):
+    @abc.abstractmethod
+    def read(self,*args,**kwargs):
+        pass
+    def filter(self,*args,**kwargs):
+        pass
+    def normalize(self,*args,**kwargs):
+        pass
 
 MAX_PIXEL_VALUE = 255
-class MNISTDataProvider(object):
+
+class MNISTDataProvider(DataProvider):
     def __init__(self):
         self.type = 'MNIST'
 
-    def read_data(self):
+    def read(self):
         (x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
         x_data = np.concatenate((x_train, x_test), axis=0)
         y_data = np.concatenate((y_train, y_test), axis=0)
         return x_data, y_data
 
-    def filter_by_label(self, features_array, label_array, desired_labels_list):
+    def filter(self, features_array, label_array, desired_labels_list):
         features_array = features_array.astype('float32')
         label_array = label_array.astype('float32')
         new_features_array = features_array.reshape(features_array.shape[0],
