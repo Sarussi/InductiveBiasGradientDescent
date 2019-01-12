@@ -38,3 +38,35 @@ class MNISTDataProvider(DataProvider):
 
     def normalize(self, features_data, max_value=MAX_PIXEL_VALUE):
         return features_data/max_value
+
+
+class GaussianLinearSeparableDataProvider(DataProvider):
+
+    def __init__(self, k=0, margin=0, mu=0, sigma=1):
+        self.type = 'Gaussian'
+        self.k = k
+        self.margin = margin*sigma
+        self.mu = mu
+        self.sigma = sigma
+        self.w = None
+
+    def random_normal(self, N, d, mu, sigma):
+        return sigma * np.random.randn(N, d) + mu
+
+    def read(self, N, d):
+        w = self.random_normal(1, d, self.mu, self.sigma)
+        self.w = w/np.linalg.norm(w)
+        X = self.random_normal(N, d,self.mu, self.sigma)
+        X_positive = X[(np.inner(X, self.w) > self.k + self.margin / 2).reshape(N, )]
+        X_negative = X[(np.inner(X, self.w) < self.k - self.margin / 2).reshape(N, )]
+        y_positive = np.ones((X_positive.shape[0],1)).reshape(X_positive.shape[0],1)
+        y_negative = -1*np.ones((X_negative.shape[0],1)).reshape(X_negative.shape[0],1)
+        x_data = np.concatenate((X_positive, X_negative), axis=0)
+        y_data = np.concatenate((y_positive, y_negative), axis=0)
+        return x_data, y_data
+
+    def filter(self, features_array, label_array, desired_labels_list=None):
+        return features_array, label_array
+
+    def normalize(self, features_data):
+        return (features_data-self.mu)/self.sigma
