@@ -13,7 +13,8 @@ if configuration_parameters["data"]["normalize"]:
     x_data = data_provider.normalize(x_data)
 if configuration_parameters["data"]["shuffle"]:
     x_data, y_data = shuffle(x_data, y_data)
-
+print(x_data.shape[0])
+aa=1
 x_train = x_data[0:int(x_data.shape[0] * train_test_split_ration), :]
 y_train = y_data[0:int(x_data.shape[0] * train_test_split_ration)]
 y_test = y_data[int(x_data.shape[0] * train_test_split_ration):int(x_data.shape[0])]
@@ -31,16 +32,20 @@ number_of_epochs = configuration_parameters["model"]["number_of_epochs"]
 train_error_results /= configuration_parameters["model"]["number_of_runs"] + 1
 test_error_results /= configuration_parameters["model"]["number_of_runs"] + 1
 avg_loss /= configuration_parameters["model"]["number_of_runs"] + 1
+ylimits = (0,0.06)
 f_1 = plt.figure(1)
 plt.scatter(range(number_of_epochs), train_error_results)
 plt.xlabel('Epochs')
 plt.ylabel('train_error')
+plt.ylim(ylimits)
 f_2 = plt.figure(2)
 plt.scatter(range(number_of_epochs), test_error_results)
 plt.xlabel('Epochs')
 plt.ylabel('test_error')
+plt.ylim(ylimits)
 f_3 = plt.figure(3)
 plt.scatter(range(number_of_epochs), avg_loss)
 plt.xlabel('Epochs')
 plt.ylabel('cost_error')
+plt.ylim(ylimits)
 plt.show()

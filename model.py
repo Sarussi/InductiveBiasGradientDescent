@@ -1,23 +1,6 @@
-from input_parser import MNISTDataProvider
-from configuration import configuration_parameters
+
 import tensorflow as tf
 import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.utils import shuffle
-
-# mnist_data = MNISTDataProvider()
-
-# N = 100
-# d = 784
-# train_test_split_ration = 0.75
-# data_provider = configuration_parameters["data"]["data_provider"]
-# x_data, y_data = data_provider.read(N, d)
-# x_data, y_data = shuffle(x_data, y_data)
-#
-# x_train = x_data[0:int(x_data.shape[0] * train_test_split_ration), :]
-# y_train = y_data[0:int(x_data.shape[0] * train_test_split_ration)]
-# y_test = y_data[int(x_data.shape[0] * train_test_split_ration):int(x_data.shape[0])]
-# x_test = x_data[int(x_data.shape[0] * train_test_split_ration):int(x_data.shape[0]), :]
 
 
 
@@ -35,7 +18,7 @@ def create_model(configuration):
         'h1': tf.Variable(tf.random_normal([2 * number_of_neurons, input_dimension])),
     }
     v = tf.constant(
-        np.concatenate((np.ones(number_of_neurons), -1 * np.ones(number_of_neurons)), axis=0).astype('float32').reshape(
+        (1/np.sqrt(2*number_of_neurons))*np.concatenate((np.ones(number_of_neurons), -1 * np.ones(number_of_neurons)), axis=0).astype('float32').reshape(
             [1, 2 * number_of_neurons]))
 
     # Create model
@@ -110,18 +93,3 @@ def measure_model(x_train, y_train, x_test, y_test, configuration):
         print("Accuracy:", zeros_one_loss_mean.eval({X: np.transpose(x_test), Y: np.transpose(y_test)}))
         return np.array(train_error_results), np.array(test_error_results), np.array(avg_loss), weights_values
 
-# training_epochs = configuration_parameters["model"]["number_of_epochs"]
-# train_accuracy_results, test_accuracy_results, accuracy_epoch_array, weights_values = measure_model(x_train,y_train,x_test,y_test,configuration_parameters)
-# f_1 = plt.figure(1)
-# plt.scatter(range(training_epochs), train_accuracy_results)
-# plt.xlabel('Epochs')
-# plt.ylabel('train_error')
-# f_2 = plt.figure(2)
-# plt.scatter(range(training_epochs), test_accuracy_results)
-# plt.xlabel('Epochs')
-# plt.ylabel('test_error')
-# plt.show()
-# f_3 = plt.figure(3)
-# plt.scatter(range(training_epochs), accuracy_epoch_array)
-# plt.xlabel('Epochs')
-# plt.ylabel('cost_error')
