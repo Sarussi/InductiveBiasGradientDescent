@@ -68,6 +68,7 @@ class GaussianLinearSeparableDataProvider(DataProvider):
             temp_point = self.random_normal(1, d, mu=self.mu, sigma=self.sigma)
             if (np.inner(temp_point, self.w) > 1):
                 X_positive = np.append(X_positive, temp_point, axis=0)
+            print(X_positive.shape[0])
         for i in range(X_positive.shape[0]):
             if np.linalg.norm(X_positive[i, :]) > 1:
                 X_positive[i, :] /= np.amax(np.linalg.norm(X_positive, axis=1))
@@ -77,6 +78,8 @@ class GaussianLinearSeparableDataProvider(DataProvider):
             temp_point = self.random_normal(1, d, mu=self.mu, sigma=self.sigma)
             if (np.inner(temp_point, self.w) < -1):
                 X_negative = np.append(X_negative, temp_point, axis=0)
+            print(X_negative.shape[0])
+
         for i in range(X_negative.shape[0]):
             if np.linalg.norm(X_negative[i, :]) > 1:
                 X_negative[i, :] /= np.amax(np.linalg.norm(X_negative, axis=1))
