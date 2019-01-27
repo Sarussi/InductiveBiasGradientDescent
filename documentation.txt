@@ -1,1 +1,9 @@
-﻿תיעוד בסיסי:
+﻿Inductive Bias Of SGD
+מטרת העבודה:
+מהלך העבודה:
+
+תכנון משימות:
+יצירת linearly separable data set (או דרך mnist או דרך אחרת).
+בניית הרשת המופיעה במאמר (hidden layer אחד)
+שחזור figure 1 במאמר
+הרחבה של המאמר ל(2 hidden layers).
