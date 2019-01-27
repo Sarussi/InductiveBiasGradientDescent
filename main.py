@@ -9,12 +9,8 @@ d = configuration_parameters["data"]["sample_dimension"]
 train_test_split_ration = configuration_parameters["data"]["train_test_split_ration"]
 data_provider = configuration_parameters["data"]["data_provider"]
 x_data, y_data = data_provider.read(N, d)
-if configuration_parameters["data"]["normalize"]:
-    x_data = data_provider.normalize(x_data)
 if configuration_parameters["data"]["shuffle"]:
     x_data, y_data = shuffle(x_data, y_data)
-print(x_data.shape[0])
-aa=1
 x_train = x_data[0:int(x_data.shape[0] * train_test_split_ration), :]
 y_train = y_data[0:int(x_data.shape[0] * train_test_split_ration)]
 y_test = y_data[int(x_data.shape[0] * train_test_split_ration):int(x_data.shape[0])]

@@ -60,7 +60,6 @@ class GaussianLinearSeparableDataProvider(DataProvider):
 
     def read(self, N, d):
         w = self.random_normal(1, d, self.mu, self.sigma)
-        # w=np.array([0,1])
         self.w = w / np.linalg.norm(w)
         self.w = (1 / self.margin) * self.w
         X_positive = np.empty([1, d])
@@ -68,21 +67,22 @@ class GaussianLinearSeparableDataProvider(DataProvider):
             temp_point = self.random_normal(1, d, mu=self.mu, sigma=self.sigma)
             if (np.inner(temp_point, self.w) > 1):
                 X_positive = np.append(X_positive, temp_point, axis=0)
-            print(X_positive.shape[0])
-        for i in range(X_positive.shape[0]):
-            if np.linalg.norm(X_positive[i, :]) > 1:
-                X_positive[i, :] /= np.amax(np.linalg.norm(X_positive, axis=1))
+            positive_precentage_gathered = (X_positive.shape[0] / (N / 2))*100
+            if positive_precentage_gathered%10==0:
+                print("Amount of positive samples created by now is: {precentage_of_positive_data}%".format(
+                    precentage_of_positive_data=positive_precentage_gathered))
+        X_positive = self.normalize(X_positive)
 
         X_negative = np.empty([1, d])
         while X_negative.shape[0] < N / 2:
             temp_point = self.random_normal(1, d, mu=self.mu, sigma=self.sigma)
             if (np.inner(temp_point, self.w) < -1):
                 X_negative = np.append(X_negative, temp_point, axis=0)
-            print(X_negative.shape[0])
-
-        for i in range(X_negative.shape[0]):
-            if np.linalg.norm(X_negative[i, :]) > 1:
-                X_negative[i, :] /= np.amax(np.linalg.norm(X_negative, axis=1))
+            negative_precentage_gathered = (X_negative.shape[0] / (N / 2))*100
+            if negative_precentage_gathered%10 == 0:
+                print("Amount of negative samples created by now is: {precentage_of_negative_data}%".format(
+                    precentage_of_negative_data=negative_precentage_gathered))
+        X_negative = self.normalize(X_negative)
 
         y_positive = np.ones((X_positive.shape[0], 1)).reshape(X_positive.shape[0], 1)
         y_negative = -1 * np.ones((X_negative.shape[0], 1)).reshape(X_negative.shape[0], 1)
@@ -100,4 +100,8 @@ class GaussianLinearSeparableDataProvider(DataProvider):
         return features_array, label_array
 
     def normalize(self, features_data):
-        return (features_data - self.mu) / self.sigma
+        for i in range(features_data.shape[0]):
+            max_feature_norm = np.amax(np.linalg.norm(features_data, axis=1))
+            if np.linalg.norm(features_data[i, :]) > 1:
+                features_data[i, :] /= max_feature_norm
+        return features_data
