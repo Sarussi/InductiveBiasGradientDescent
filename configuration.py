@@ -1,10 +1,10 @@
 from input_parser import MNISTDataProvider, GaussianLinearSeparableDataProvider
 
-DIMENSION = 10
-SAMPLE_SIZE = 50*DIMENSION
+DIMENSION = 300
+SAMPLE_SIZE = 20*DIMENSION
 configuration_parameters = {
     'data': {
-        'data_provider': GaussianLinearSeparableDataProvider(margin=0.1),
+        'data_provider': GaussianLinearSeparableDataProvider(margin=0.001),
         'filter_arguments': None,
         'sample_size': SAMPLE_SIZE,
         'sample_dimension': DIMENSION,
@@ -14,7 +14,7 @@ configuration_parameters = {
     'model': {
         'learning_rate': 0.01,
         'batch_size': 1,
-        'number_of_neurons': 2,
+        'number_of_neurons': 40,
         'number_of_classes': 1,
         'activation_type': 'leaky',
         'input_dimension': DIMENSION,

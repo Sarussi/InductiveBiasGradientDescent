@@ -67,8 +67,8 @@ class GaussianLinearSeparableDataProvider(DataProvider):
             temp_point = self.random_normal(1, d, mu=self.mu, sigma=self.sigma)
             if (np.inner(temp_point, self.w) > 1):
                 X_positive = np.append(X_positive, temp_point, axis=0)
-            positive_precentage_gathered = (X_positive.shape[0] / (N / 2))*100
-            if positive_precentage_gathered%10==0:
+            positive_precentage_gathered = (X_positive.shape[0] / (N / 2)) * 100
+            if positive_precentage_gathered % 10 == 0:
                 print("Amount of positive samples created by now is: {precentage_of_positive_data}%".format(
                     precentage_of_positive_data=positive_precentage_gathered))
         X_positive = self.normalize(X_positive)
@@ -78,8 +78,8 @@ class GaussianLinearSeparableDataProvider(DataProvider):
             temp_point = self.random_normal(1, d, mu=self.mu, sigma=self.sigma)
             if (np.inner(temp_point, self.w) < -1):
                 X_negative = np.append(X_negative, temp_point, axis=0)
-            negative_precentage_gathered = (X_negative.shape[0] / (N / 2))*100
-            if negative_precentage_gathered%10 == 0:
+            negative_precentage_gathered = (X_negative.shape[0] / (N / 2)) * 100
+            if negative_precentage_gathered % 10 == 0:
                 print("Amount of negative samples created by now is: {precentage_of_negative_data}%".format(
                     precentage_of_negative_data=negative_precentage_gathered))
         X_negative = self.normalize(X_negative)
@@ -94,6 +94,26 @@ class GaussianLinearSeparableDataProvider(DataProvider):
             plt.show()
         x_data = np.concatenate((X_positive, X_negative), axis=0)
         y_data = np.concatenate((y_positive, y_negative), axis=0)
+        return x_data, y_data
+
+    def filter(self, features_array, label_array, desired_labels_list=None):
+        return features_array, label_array
+
+    def normalize(self, features_data):
+        for i in range(features_data.shape[0]):
+            max_feature_norm = np.amax(np.linalg.norm(features_data, axis=1))
+            if np.linalg.norm(features_data[i, :]) > 1:
+                features_data[i, :] /= max_feature_norm
+        return features_data
+
+
+class OrthogonalSingleClassDataProvider(DataProvider):
+    def __init__(self):
+        self.type = 'OrthogonalBasis'
+
+    def read(self, dimension):
+        x_data = np.eye(dimension, dimension)
+        y_data = np.ones((dimension, 1)).reshape(dimension, 1)
         return x_data, y_data
 
     def filter(self, features_array, label_array, desired_labels_list=None):
