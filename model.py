@@ -9,7 +9,6 @@ def create_model(configuration):
     # number_of_neurons_first_layer = configuration['model']['number_of_neurons_first_layer']
     # number_of_neurons_second_layer = configuration['model']['number_of_neurons_second_layer']
     number_of_neurons_in_layers_dict = configuration['model']['number_of_neurons_in_layers']
-    learning_rate = configuration['model']['learning_rate']
     activation_type = configuration['model']['activation_type']
     loss_type = configuration['model']['loss_type']
     X = tf.placeholder("float", [input_dimension, None])
