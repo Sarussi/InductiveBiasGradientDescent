@@ -26,19 +26,19 @@ def create_model(configuration):
     for key in weights_layers_sizes.keys():
         weights[key] = tf.Variable(tf.random_normal(weights_layers_sizes[key]))
 
-
     # Create model
     def neural_net_N_layers(x):
         # Hidden fully connected layer with 2k neurons
         current_features = x
         for key in weights.keys():
-            print(current_features.shape)
             matrix_multiply = tf.matmul(weights[key], current_features)
             # pooling non linearity
             if activation_type == 'leaky':
                 current_features = tf.nn.leaky_relu(matrix_multiply)
-            else:
+            elif activation_type == 'relu':
                 current_features = tf.nn.relu(matrix_multiply)
+            else:
+                current_features = matrix_multiply
         # Hidden second layer
         return current_features
 
@@ -53,14 +53,17 @@ def create_model(configuration):
         loss_op = tf.reduce_mean(tf.losses.hinge_loss(
             labels=Y,
             logits=logits))
-
     optimizer = tf.train.GradientDescentOptimizer(learning_rate=learning_rate)
+    # gradients_varaibles_list = optimizer.compute_gradients(loss_op)
+    # gradients_values_list = [gradient_variable[0] for gradient_variable in gradients_varaibles_list]
+    # train_op = optimizer.apply_gradients(gradients_varaibles_list)
     train_op = optimizer.minimize(loss_op)
     return loss_op, train_op, logits, X, Y, learning_rate, weights
 
 
 def measure_model(x_train, y_train, x_test, y_test, configuration):
     loss_op, train_op, logits, X, Y, learning_rate, weights = create_model(configuration)
+    var_grad = tf.gradients(loss_op,list(weights.values()))
     training_epochs = configuration["model"]["number_of_epochs"]
     batch_size = configuration["model"]["batch_size"]
     # Test model
@@ -68,6 +71,7 @@ def measure_model(x_train, y_train, x_test, y_test, configuration):
     train_error_results = []
     test_error_results = []
     weights_between_epochs = []
+    gradients_between_epochs =[]
     # Initializing the variables
     init = tf.global_variables_initializer()
     # TODO: check the loss function
@@ -95,6 +99,11 @@ def measure_model(x_train, y_train, x_test, y_test, configuration):
                                                    feed_dict={X: np.transpose(batch_x),
                                                               Y: np.transpose(batch_y),
                                                               learning_rate: current_learning_rate})
+                gradients_variables = sess.run(var_grad,feed_dict={X: np.transpose(batch_x),
+                                                              Y: np.transpose(batch_y),
+                                                              learning_rate: current_learning_rate})
+                aa=1
+                # gradients_values_list = [gradient_variable[0] for gradient_variable in gradients_variables]
                 # Compute average loss
                 avg_cost += cost / total_batch
             if configuration['model']['decreasing_learning_rate']:
@@ -105,7 +114,7 @@ def measure_model(x_train, y_train, x_test, y_test, configuration):
                 # beta_r = 2 * (number_of_layers ** 2) * (r ** (2 * number_of_layers - 2)) * (beta + G)
                 # #
                 # current_learning_rate = min([1, 1 / (beta_r)]) / 2
-                if int(epoch) % 100 == 0 :
+                if int(epoch) % 100 == 0:
                     current_learning_rate *= 0.5
                     print(current_learning_rate)
             else:
@@ -117,10 +126,12 @@ def measure_model(x_train, y_train, x_test, y_test, configuration):
             train_error_results.append(train_error)
             test_error_results.append(test_error)
             weights_between_epochs.append(weights_values)
+            gradients_dict = dict(zip(weights_values.keys(), gradients_variables))
+            gradients_between_epochs.append(gradients_dict)
             # Display logs per epoch step
             avg_loss.append(avg_cost)
             print("Epoch:", '%04d' % (epoch + 1), "cost={:.9f}".format(avg_cost))
         print("Optimization Finished!")
-
         print("Accuracy:", zeros_one_loss_mean.eval({X: np.transpose(x_test), Y: np.transpose(y_test)}))
-        return np.array(train_error_results), np.array(test_error_results), np.array(avg_loss), weights_between_epochs
+        var_grad =[]
+        return np.array(train_error_results), np.array(test_error_results), np.array(avg_loss), weights_between_epochs,gradients_between_epochs

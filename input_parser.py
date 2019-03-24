@@ -63,7 +63,7 @@ class GaussianLinearSeparableDataProvider(DataProvider):
         self.w = w / np.linalg.norm(w)
         self.w = (1 / self.margin) * self.w
         X_positive = np.empty([1, d])
-        while X_positive.shape[0] < N / 2:
+        while X_positive.shape[0] < float(N) / 2:
             temp_point = self.random_normal(1, d, mu=self.mu, sigma=self.sigma)
             if (np.inner(temp_point, self.w) > 1):
                 X_positive = np.append(X_positive, temp_point, axis=0)
@@ -74,7 +74,7 @@ class GaussianLinearSeparableDataProvider(DataProvider):
         X_positive = self.normalize(X_positive)
 
         X_negative = np.empty([1, d])
-        while X_negative.shape[0] < N / 2:
+        while X_negative.shape[0] < float(N) / 2:
             temp_point = self.random_normal(1, d, mu=self.mu, sigma=self.sigma)
             if (np.inner(temp_point, self.w) < -1):
                 X_negative = np.append(X_negative, temp_point, axis=0)
