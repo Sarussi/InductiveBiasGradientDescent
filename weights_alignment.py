@@ -1,12 +1,17 @@
+
 from sklearn.utils import shuffle
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from input_parser import MNISTDataProvider, GaussianLinearSeparableDataProvider
 from model import measure_model
 import copy
 import arrow
 import os
-
+import time
+from datetime import timedelta
+start_time = time.time()
 
 def set_network_archeitecture(max_neurons_in_layer, number_of_layers):
     neurons_in_layers_array = np.linspace(start=max_neurons_in_layer, stop=1, num=number_of_layers,
@@ -18,11 +23,11 @@ def set_network_archeitecture(max_neurons_in_layer, number_of_layers):
     return number_of_neurons_in_layers
 
 
-DIMENSION = 10
+DIMENSION = 20
 SAMPLE_SIZE = 100 * DIMENSION
-NUMBER_OF_LAYERS = 2
-MAX_NEURONS_IN_LAYER = 10
-MARGIN = 0.00001
+NUMBER_OF_LAYERS = 3
+MAX_NEURONS_IN_LAYER = 5
+MARGIN = 0.00000001
 configuration_parameters = {
     'data': {
         'data_provider': GaussianLinearSeparableDataProvider(margin=MARGIN),
@@ -34,16 +39,16 @@ configuration_parameters = {
     },
 
     'model': {
-        'learning_rate': 0.01,
-        'decreasing_learning_rate': False,
+        'learning_rate': 0.001,
+        'increasing_learning_rate': True,
         'batch_size': 1,
         'number_of_neurons_in_layers': set_network_archeitecture(MAX_NEURONS_IN_LAYER, NUMBER_OF_LAYERS),
         'number_of_classes': 1,
-        'activation_type': 'identity',
+        'activation_type': 'relu',
         'loss_type': 'logistic',
         'input_dimension': DIMENSION,
-        'number_of_epochs': 1000,
-        'number_of_runs': 5
+        'number_of_epochs': 100,
+        'number_of_runs': 3
     }
 
 }
@@ -99,6 +104,7 @@ def average_weights_measurments(configuration_parameters, x_train, y_train, x_te
         train_error_temp, test_error_temp, avg_loss_temp, weights_temp, gradients_between_epochs = measure_model(
             x_train, y_train, x_test, y_test,
             configuration_parameters)
+        aa=1
         avg_loss += avg_loss_temp
         weights_layers_epochs_temp = {}
         for key in weights_temp[0].keys():
@@ -116,7 +122,6 @@ def average_weights_measurments(configuration_parameters, x_train, y_train, x_te
             for key in current_gradients.keys():
                 gradients_layers_epochs_temp[key].append(current_gradients[key])
 
-        aa=1
         for key in weights_layers_epochs_temp.keys():
             weights_2_vs_fro_norm_ratio[key] += [
                 np.linalg.norm(current_weights, ord=2) / np.linalg.norm(current_weights, ord='fro') for current_weights
@@ -152,7 +157,6 @@ def plot_single_archeticture_vs_epochs(configuration_parameters, x_train, y_trai
         configuration_parameters, x_train,
         y_train, x_test,
         y_test)
-    aa=1
     number_of_epochs = configuration_parameters["model"]["number_of_epochs"]
     plot_index = 1
     weight_plots_dict = {}
@@ -189,34 +193,36 @@ def plot_single_archeticture_vs_epochs(configuration_parameters, x_train, y_trai
     plt.xlabel('Epochs')
     plt.ylabel('Gradients norm')
     current_date = str(arrow.now().format('YYYY-MM-DD'))
-    configuration_path = "sample_dimension_{sample_dimension}_margin_{margin}_activation_type_{activation_type}_loss_type_{loss_type}_network_architecture_{number_of_neurons_for_layer}".format(
+    configuration_path = "dimension_{sample_dimension}_sample_size_{sample_size}_epochs_{number_of_epochs}_margin_{margin}_activation_type_{activation_type}_loss_type_{loss_type}_network_architecture_{number_of_neurons_for_layer}".format(
         sample_dimension=configuration_parameters["data"]["sample_dimension"],
+        sample_size=configuration_parameters["data"]["sample_size"],
+        number_of_epochs = configuration_parameters["model"]["number_of_epochs"],
         margin=MARGIN,
         activation_type=configuration_parameters["model"]["activation_type"],
         loss_type=configuration_parameters["model"]["loss_type"],
         number_of_neurons_for_layer=str(
             list(configuration_parameters["model"]["number_of_neurons_in_layers"].values())))
-    results_path = "{cwd_path}\{current_date}\weights_alignment\{configuration_path}".format(
+    results_path = "{cwd_path}/{current_date}\weights_alignment/{configuration_path}".format(
         cwd_path=str(os.getcwd()),
         current_date=current_date, configuration_path=configuration_path)
     if not os.path.isdir(results_path):
         os.makedirs(results_path)
     configuration_parameters_text = open(
-        "{results_path}\configuration_parameters.txt".format(
+        "{results_path}/configuration_parameters.txt".format(
             results_path=results_path), "w")
     configuration_parameters_text.write(str(configuration_parameters))
     configuration_parameters_text.close()
 
-    f_1.savefig("{results_path}\layers_2_vs_fro_norms_ratio.png".format(
+    f_1.savefig("{results_path}/layers_2_vs_fro_norms_ratio.png".format(
         results_path=results_path))
     # f_2.savefig("{results_path}\wprod_v1_product.png".format(
     #     results_path=results_path))
     f_3.savefig(
-        "{results_path}\epochs_cost_error.png".format(
+        "{results_path}/epochs_cost_error.png".format(
             results_path=results_path))
-    f_4.savefig("{results_path}\layers_2_vs_nuc_norms_ratio.png".format(
+    f_4.savefig("{results_path}/layers_2_vs_nuc_norms_ratio.png".format(
         results_path=results_path))
-    f_5.savefig("{results_path}\gradients_norm.png".format(
+    f_5.savefig("{results_path}/gradients_norm.png".format(
         results_path=results_path))
     f_1.clf()
     f_2.clf()
@@ -226,3 +232,4 @@ def plot_single_archeticture_vs_epochs(configuration_parameters, x_train, y_trai
 
 
 plot_single_archeticture_vs_epochs(configuration_parameters, x_train, y_train, x_test, y_test)
+print("elapsed time is {elapsed_time} seconds".format(elapsed_time=str(timedelta(seconds=time.time()-start_time))))
