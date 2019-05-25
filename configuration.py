@@ -18,8 +18,9 @@ configuration_parameters = {
         'number_of_classes': 1,
         'activation_type': 'leaky',
         'input_dimension': DIMENSION,
-        'number_of_epochs': 100,
-        'number_of_runs': 5
+        'number_of_non_random_neurons_initialization': 0,
+        'number_of_epochs': 50,
+        'number_of_runs': 1
     }
 
 }

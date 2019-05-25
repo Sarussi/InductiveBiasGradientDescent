@@ -18,8 +18,8 @@ x_train = x_data[0:int(x_data.shape[0] * train_test_split_ration), :]
 y_train = y_data[0:int(x_data.shape[0] * train_test_split_ration)]
 y_test = y_data[int(x_data.shape[0] * train_test_split_ration):int(x_data.shape[0])]
 x_test = x_data[int(x_data.shape[0] * train_test_split_ration):int(x_data.shape[0]), :]
-small_network_sizes = np.linspace(1, 100, num=10, dtype=int)
-big_network_sizes = np.linspace(100, 30000, num=10, dtype=int)
+small_network_sizes = np.linspace(1, 100, num=2, dtype=int)
+big_network_sizes = np.linspace(100, 300, num=1, dtype=int)
 # network_sizes = np.power(2, range(4, 9))
 network_sizes = np.concatenate((small_network_sizes, big_network_sizes), axis=None)
 final_train_error_list = []
