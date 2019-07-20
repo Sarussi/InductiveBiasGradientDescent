@@ -2,6 +2,8 @@ from keras.layers import Dense
 from keras.models import Sequential
 
 import keras.backend as K
+import keras.backend as K
+import time
 
 
 def exponent_loss(y_true, y_pred):
@@ -24,8 +26,9 @@ def create_model_skeleton(number_of_neurons_in_each_layer, activation, input_dim
     return model
 
 
-def create_model(number_of_neurons_in_each_layer, activation, input_dimension, optimizer, loss_function):
+def create_model(number_of_neurons_in_each_layer, activation, input_dimension, optimizer, loss_function, learning_rate):
     model = create_model_skeleton(number_of_neurons_in_each_layer, activation, input_dimension)
+    K.set_value(optimizer.lr, learning_rate)
     model.compile(optimizer=optimizer,
                   loss=loss_function, metrics=[prediction_accuracy])
     return model
