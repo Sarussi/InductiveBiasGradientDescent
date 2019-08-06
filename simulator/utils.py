@@ -10,3 +10,6 @@ def array_of_dictionaries_mean(dict_list):
             mean_dict[key] += np.array(dictionary[key])
         mean_dict[key] /= number_of_dict
     return mean_dict
+
+def dict_to_str(dictionary):
+    return str(dictionary).replace('{','').replace('}','').replace(':','_').replace(' ','').replace("'",'').replace(',','_')

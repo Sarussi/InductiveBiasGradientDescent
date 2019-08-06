@@ -88,30 +88,32 @@ def extract_weights_values_ratio(weights_values_dictionary):
 
 def visualize_weights_max_min_values_ratio(weights_max_min_ratios_from_initialization,
                                            desired_layers_visualizations_indices_list=None, figure_handle=None,
-                                           label_title_suffix=""):
+                                           label_title_suffix="",visualization_substring="min"):
     weights_max_min_ratios_from_initialization_plots = {}
-    number_of_epochs = len(list(weights_max_min_ratios_from_initialization.values())[0])
+    number_of_samples = len(list(weights_max_min_ratios_from_initialization.values())[0])
     if not figure_handle:
         figure_handle = plt.figure()
     axis = figure_handle.gca()
     if desired_layers_visualizations_indices_list:
         for key in np.array(list(weights_max_min_ratios_from_initialization.keys()))[
             desired_layers_visualizations_indices_list]:
-            weights_max_min_ratios_from_initialization_plots[key] = axis.scatter(range(number_of_epochs),
-                                                                                 weights_max_min_ratios_from_initialization[
-                                                                                     key],
-                                                                                 label="{ratio_type}{suffix}".format(
-                                                                                     ratio_type=key,
-                                                                                     suffix=label_title_suffix))
+            if visualization_substring in key:
+                weights_max_min_ratios_from_initialization_plots[key] = axis.scatter(range(number_of_samples),
+                                                                                     weights_max_min_ratios_from_initialization[
+                                                                                         key],
+                                                                                     label="{ratio_type}{suffix}".format(
+                                                                                         ratio_type=key,
+                                                                                         suffix=label_title_suffix))
     else:
         for key in np.array(list(weights_max_min_ratios_from_initialization.keys())):
-            weights_max_min_ratios_from_initialization_plots[key] = axis.scatter(range(number_of_epochs),
-                                                                                 weights_max_min_ratios_from_initialization[
-                                                                                     key],
-                                                                                 label="{ratio_type}{suffix}".format(
-                                                                                     ratio_type=key,
-                                                                                     suffix=label_title_suffix))
+            if visualization_substring in key:
+                weights_max_min_ratios_from_initialization_plots[key] = axis.scatter(range(number_of_samples),
+                                                                                     weights_max_min_ratios_from_initialization[
+                                                                                         key],
+                                                                                     label="{ratio_type}{suffix}".format(
+                                                                                         ratio_type=key,
+                                                                                         suffix=label_title_suffix))
     axis.legend()
-    axis.set_xlabel('Epochs')
+    axis.set_xlabel('Number of batches')
     axis.set_ylabel('Weights Values Max/Min Ratio')
     return figure_handle

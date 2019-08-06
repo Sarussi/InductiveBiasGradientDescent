@@ -9,7 +9,7 @@ def zeros_array(shape):
     return np.zeros(shape)
 
 
-def random_normal(shape, mean=0, std=1):
+def random_normal(shape, mean=0, std=0.005):
     return np.random.normal(loc=mean, scale=std, size=shape)
 
 
