@@ -4,16 +4,16 @@ from keras.layers import LeakyReLU
 from keras import optimizers
 from keras import losses
 from simulator import input_generator, create_model
-from simulator.configurations.utils import set_network_architecture
+from simulator.configurations.utils import set_network_architecture_linearly
 
-DIMENSION = 3
+DIMENSION = 10
 N = 1000
 MARGIN = 0.05
 NUMBER_OF_LAYERS = 2
 MAX_NEURONS_IN_LAYER = 10
 TRAIN_TEST_SPLIT_RATIO = 0.7
-NUMBER_OF_EPOCHS = 10000
-RESULTS_PATH = os.path.join("results", "simulator_tests")
+NUMBER_OF_EPOCHS = 1000
+RESULTS_PATH = os.path.join("results", "._tests")
 ACTIVATION_FUNCTION = LeakyReLU()
 LEARNING_RATE = 0.001
 SGD_OPTIMIZER = optimizers.SGD(lr=LEARNING_RATE)
@@ -28,7 +28,7 @@ configuration = {
 
     'model': {
         'learning_rate': LEARNING_RATE,
-        'network_architecture': set_network_architecture(MAX_NEURONS_IN_LAYER, NUMBER_OF_LAYERS),
+        'network_architecture': set_network_architecture_linearly(MAX_NEURONS_IN_LAYER, NUMBER_OF_LAYERS),
         'activation_type': ACTIVATION_FUNCTION,
         'loss_type': create_model.logistic_loss,
         'optimizer': SGD_OPTIMIZER,

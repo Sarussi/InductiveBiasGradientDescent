@@ -57,9 +57,9 @@ def generate_linearly_separable_samples(number_of_samples, dimension, margin,
     x_data = np.concatenate((X_positive, X_negative), axis=0)
     y_data = np.concatenate((y_positive, y_negative), axis=0)
     x_data, y_data = shuffle(x_data, y_data)
-    measure_separability_perceptron(x_data, y_data)
+    perceptron_separation_boundary = measure_separability_perceptron(x_data, y_data)
 
-    return x_data, y_data
+    return x_data, y_data, perceptron_separation_boundary
 
 
 def train_and_test_shuffle_split(x_data, y_data, train_test_split_ratio):
@@ -96,10 +96,12 @@ def get_digits_3_and_5(data, labels):
 
 
 def measure_separability_perceptron(data, labels):
-    perceptron_model = perceptron.Perceptron(n_iter=800, verbose=0, random_state=None, fit_intercept=False, eta0=1.0)
+    perceptron_model = perceptron.Perceptron()
     perceptron_model.fit(data, labels.ravel())
+    seperating_boundary = perceptron_model.coef_
     print("Perceptron Data Accuracy   " + str(perceptron_model.score(data, labels) * 100) + "%")
     time.sleep(5)
+    return seperating_boundary
 
 
 def get_linearly_separable_mnist(number_of_samples, demean_flag=False):
@@ -109,5 +111,28 @@ def get_linearly_separable_mnist(number_of_samples, demean_flag=False):
     idx = np.random.RandomState(0).choice(len(three_and_five_data), number_of_samples)
     three_and_five_data = three_and_five_data[idx[:number_of_samples], :]
     three_and_five_labels = three_and_five_labels[idx[:number_of_samples]]
-    measure_separability_perceptron(three_and_five_data, three_and_five_labels)
-    return three_and_five_data, three_and_five_labels
+    perceptron_separation_boundary = measure_separability_perceptron(three_and_five_data, three_and_five_labels)
+    return three_and_five_data, three_and_five_labels, perceptron_separation_boundary
+
+
+def linear_line(data_param):
+    if np.isscalar(data_param['slope']):
+        return data_param['slope'] * data_param['x'] + data_param['intercept'] * np.ones(data_param['x'].shape)
+    else:
+        return [np.matmul(data_param['slope'], x) + data_param['intercept'] for x in data_param['x']]
+
+
+def get_piecewise_ground_truth(data_params, one_piece_function=linear_line):
+    y_values = [one_piece_function(data_param) for data_param in data_params]
+    x_values = [data_param['x'] for data_param in data_params]
+    gt_x_data = np.concatenate(x_values, axis=0)
+    gt_y_data = np.concatenate(y_values, axis=0)
+    return gt_x_data, gt_y_data
+
+
+def get_linear_ground_truth(number_of_samples, dimension, slope_matrix, intercept,
+                            samples_generator=uniformly_distributed_samples_in_ball):
+    initial_points_in_ball = samples_generator(number_of_samples, dimension)
+    data_parameters = {'slope': slope_matrix, 'intercept': intercept, 'x': initial_points_in_ball}
+    gt_y_data = np.array(linear_line(data_parameters))
+    return initial_points_in_ball, gt_y_data

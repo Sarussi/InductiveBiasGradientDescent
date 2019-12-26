@@ -7,20 +7,32 @@ CURRENT_TIME_STR = str(arrow.now().format('YYYY-MM-DD_HH_mm'))
 
 
 def visualize_errors(errors_dictionary, results_path):
-    for key in errors_dictionary.keys():
-        f = plt.figure()
-        plt.scatter(range(len(errors_dictionary[key])), errors_dictionary[key])
+    batch_errors = errors_dictionary['batches']
+    epoch_errors = errors_dictionary['epochs']
+    batch_errors_figure = plt.figure()
+    for key in batch_errors.keys():
+        plt.plot(range(len(batch_errors[key][0])), list(batch_errors[key][0]), label='{key}'.format(key=key))
+        plt.xlabel('Batches')
+        plt.ylabel('Error')
+        plt.legend()
+        save_figure(batch_errors_figure, plot_path=r"{result_path}\batch_errors".format(result_path=results_path),
+                    plot_name=CURRENT_TIME_STR)
+
+    epoch_errors_figure = plt.figure()
+    for key in epoch_errors.keys():
+        plt.plot(range(len(epoch_errors[key][0])), list(epoch_errors[key][0]), label='{key}'.format(key=key))
         plt.xlabel('Epochs')
-        plt.ylabel('{error_type}'.format(error_type=key))
-        plot_path = os.path.join(results_path, key)
-        save_figure(f, plot_path)
+        plt.ylabel('Error')
+        plt.legend()
+        save_figure(epoch_errors_figure, plot_path=r"{result_path}\epoch_errors".format(result_path=results_path),
+                    plot_name=CURRENT_TIME_STR)
 
 
-def save_figure(figure_handle, plot_path):
-    if not os.path.isdir(plot_path):
+def save_figure(figure_handle, plot_path, plot_name):
+    if not os.path.exists(plot_path):
         os.makedirs(plot_path)
-    figure_handle.savefig(r"{results_path}\{current_date}.png".format(
-        results_path=plot_path, current_date=CURRENT_TIME_STR))
+    figure_handle.savefig(r"{results_path}\{plot_name}.png".format(
+        results_path=plot_path, plot_name=plot_name), bbox_inches='tight')
 
 
 def save_configuration(configuration, configuration_path):
@@ -53,12 +65,14 @@ def visualize_weights_norms_ratio(weights_2_vs_fro_norm_ratio,
     axis = figure_handle.gca()
     if desired_layers_visualizations_indices_list:
         for key in np.array(list(weights_2_vs_fro_norm_ratio.keys()))[desired_layers_visualizations_indices_list]:
-            weights_plots_dict[key] = axis.scatter(range(number_of_epochs), weights_2_vs_fro_norm_ratio[key],
+            weights_plots_dict[key] = axis.scatter(range(weights_2_vs_fro_norm_ratio[key].shape[1]),
+                                                   weights_2_vs_fro_norm_ratio[key],
                                                    label="{key}{label_suffix}".format(key=key,
                                                                                       label_suffix=label_title_suffix))
     else:
         for key in np.array(list(weights_2_vs_fro_norm_ratio.keys()))[:-1]:
-            weights_plots_dict[key] = axis.scatter(range(number_of_epochs), weights_2_vs_fro_norm_ratio[key],
+            weights_plots_dict[key] = axis.scatter(range(weights_2_vs_fro_norm_ratio[key].shape[1]),
+                                                   weights_2_vs_fro_norm_ratio[key],
                                                    label="{key}{label_suffix}".format(key=key,
                                                                                       label_suffix=label_title_suffix))
     axis.legend()
@@ -87,10 +101,11 @@ def extract_weights_values_ratio(weights_values_dictionary):
 
 
 def visualize_weights_max_min_values_ratio(weights_max_min_ratios_from_initialization,
+                                           non_zero_updates_upper_bound=None,
                                            desired_layers_visualizations_indices_list=None, figure_handle=None,
-                                           label_title_suffix="",visualization_substring="min"):
+                                           label_title_suffix="", visualization_substring="m"):
     weights_max_min_ratios_from_initialization_plots = {}
-    number_of_samples = len(list(weights_max_min_ratios_from_initialization.values())[0])
+    number_of_samples = len(list(weights_max_min_ratios_from_initialization.values())[0][0])
     if not figure_handle:
         figure_handle = plt.figure()
     axis = figure_handle.gca()
@@ -103,7 +118,9 @@ def visualize_weights_max_min_values_ratio(weights_max_min_ratios_from_initializ
                                                                                          key],
                                                                                      label="{ratio_type}{suffix}".format(
                                                                                          ratio_type=key,
-                                                                                         suffix=label_title_suffix))
+                                                                                         suffix=label_title_suffix,
+                                                                                         non_zero_updates=str(
+                                                                                             non_zero_updates_upper_bound)))
     else:
         for key in np.array(list(weights_max_min_ratios_from_initialization.keys())):
             if visualization_substring in key:
@@ -116,4 +133,5 @@ def visualize_weights_max_min_values_ratio(weights_max_min_ratios_from_initializ
     axis.legend()
     axis.set_xlabel('Number of batches')
     axis.set_ylabel('Weights Values Max/Min Ratio')
+    # axis.set_title("non_zero_updates_upper_bound is {non_zero_updates}".format(non_zero_updates=str(non_zero_updates_upper_bound)))
     return figure_handle
