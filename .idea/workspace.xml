@@ -2,21 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c6e1f9a-046b-4566-b3cf-5529cafe9567" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/simulator/configurations/linear_regression_configuration.py" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/main.py" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/model.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/checks.py" afterPath="$PROJECT_DIR$/checks.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulator/configurations/alons_configuration.py" afterPath="$PROJECT_DIR$/simulator/configurations/alons_configuration.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulator/configurations/simulator_configuration.py" afterPath="$PROJECT_DIR$/simulator/configurations/simulator_configuration.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulator/configurations/utils.py" afterPath="$PROJECT_DIR$/simulator/configurations/utils.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulator/configurations/linear_regression_configuration.py" afterPath="$PROJECT_DIR$/simulator/configurations/linear_regression_configuration.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulator/create_model.py" afterPath="$PROJECT_DIR$/simulator/create_model.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulator/input_generator.py" afterPath="$PROJECT_DIR$/simulator/input_generator.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulator/main.py" afterPath="$PROJECT_DIR$/simulator/main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulator/metrics_visualizer.py" afterPath="$PROJECT_DIR$/simulator/metrics_visualizer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulator/parameters_initialization.py" afterPath="$PROJECT_DIR$/simulator/parameters_initialization.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulator/tests.py" afterPath="$PROJECT_DIR$/simulator/tests.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulator/train_model.py" afterPath="$PROJECT_DIR$/simulator/train_model.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulator/utils.py" afterPath="$PROJECT_DIR$/simulator/utils.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,13 +22,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="create_model.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/simulator/create_model.py">
+      <file leaf-file-name="train_model.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/simulator/train_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="616">
-              <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+            <state relative-caret-position="1276">
+              <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
               <folding>
-                <element signature="e#0#30#0" expanded="true" />
+                <element signature="e#0#12#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -42,8 +37,8 @@
       <file leaf-file-name="linear_regression_configuration.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/simulator/configurations/linear_regression_configuration.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="34" column="90" lean-forward="false" selection-start-line="34" selection-start-column="90" selection-end-line="34" selection-end-column="90" />
+            <state relative-caret-position="242">
+              <caret line="35" column="25" lean-forward="false" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="25" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -51,43 +46,84 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/simulator/main.py">
+      <file leaf-file-name="create_model.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/simulator/create_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="13" column="37" lean-forward="true" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+            <state relative-caret-position="110">
+              <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
               <folding>
-                <element signature="e#0#29#0" expanded="true" />
+                <element signature="e#0#30#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2019-12-26_11_22.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights_values_min_and_max_ratios/2019-12-26_11_22.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/simulator/utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="3" column="42" lean-forward="true" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="checks.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/checks.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3940">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="196" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#49#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="parameters_initialization.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/simulator/parameters_initialization.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="457">
+              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tests.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/simulator/tests.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="142" column="99" lean-forward="true" selection-start-line="142" selection-start-column="99" selection-end-line="142" selection-end-column="99" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+                <element signature="e#2107#5535#0" expanded="false" />
+                <element signature="e#5610#8302#0" expanded="false" />
+                <element signature="e#9937#14630#0" expanded="false" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="metrics_visualizer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/simulator/metrics_visualizer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-479">
-              <caret line="57" column="33" lean-forward="false" selection-start-line="57" selection-start-column="4" selection-end-line="57" selection-end-column="33" />
-              <folding />
+            <state relative-caret-position="136">
+              <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tests.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/simulator/tests.py">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/simulator/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-699">
-              <caret line="116" column="115" lean-forward="false" selection-start-line="116" selection-start-column="79" selection-end-line="116" selection-end-column="115" />
+            <state relative-caret-position="176">
+              <caret line="32" column="75" lean-forward="true" selection-start-line="32" selection-start-column="75" selection-end-line="32" selection-end-column="75" />
               <folding>
-                <element signature="e#0#14#0" expanded="true" />
-                <element signature="e#8202#12895#0" expanded="false" />
+                <element signature="e#0#29#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -112,10 +148,17 @@
       <find>weights</find>
       <find>create_model</find>
       <find>visualize_weights_norms_ratio</find>
+      <find>CURRENT</find>
+      <find>subplots</find>
+      <find>train_test_split</find>
     </findStrings>
     <replaceStrings>
       <replace>.</replace>
     </replaceStrings>
+    <dirStrings>
+      <dir>C:\Users\roeis\Documents\Gradient descent inductive bias\code\simulator\results</dir>
+      <dir>C:\Users\roeis\Documents\Gradient descent inductive bias\code\simulator</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -137,32 +180,32 @@
         <option value="$PROJECT_DIR$/simulator/simulator_configuration.py" />
         <option value="$PROJECT_DIR$/simulator/visualize.py" />
         <option value="$USER_HOME$/Downloads/linear_mnist.py" />
-        <option value="$PROJECT_DIR$/simulator/parameters_initialization.py" />
         <option value="$PROJECT_DIR$/checks.py" />
         <option value="$PROJECT_DIR$/simulator/results/simulator_tests/configuration/2019-07-16_09_14.txt" />
         <option value="$PROJECT_DIR$/simulator/results/simulator_tests/configuration/2019-07-16_09_17.txt" />
         <option value="$PROJECT_DIR$/../../Gradiecnt Descent Inductive bias - google collab/simulator/input_generator.py" />
-        <option value="$PROJECT_DIR$/temp.py" />
         <option value="$PROJECT_DIR$/simulator/configurations/simulator_configuration.py" />
         <option value="$PROJECT_DIR$/simulator/configurations/alons_configuration.py" />
         <option value="$PROJECT_DIR$/simulator/configurations/utils.py" />
         <option value="$PROJECT_DIR$/temp_functions.py" />
         <option value="$PROJECT_DIR$/simulator/input_generator.py" />
-        <option value="$PROJECT_DIR$/simulator/train_model.py" />
         <option value="$PROJECT_DIR$/simulator/utils.py" />
+        <option value="$PROJECT_DIR$/temp.py" />
+        <option value="$PROJECT_DIR$/simulator/parameters_initialization.py" />
+        <option value="$PROJECT_DIR$/simulator/train_model.py" />
+        <option value="$PROJECT_DIR$/simulator/create_model.py" />
+        <option value="$PROJECT_DIR$/simulator/configurations/linear_regression_configuration.py" />
+        <option value="$PROJECT_DIR$/simulator/main.py" />
         <option value="$PROJECT_DIR$/simulator/metrics_visualizer.py" />
         <option value="$PROJECT_DIR$/simulator/tests.py" />
-        <option value="$PROJECT_DIR$/simulator/create_model.py" />
-        <option value="$PROJECT_DIR$/simulator/main.py" />
-        <option value="$PROJECT_DIR$/simulator/configurations/linear_regression_configuration.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="x" value="-1928" />
+    <option name="y" value="-213" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -205,13 +248,6 @@
               <item name="simulator" type="462c0819:PsiDirectoryNode" />
               <item name="results" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="code" type="462c0819:PsiDirectoryNode" />
-              <item name="simulator" type="462c0819:PsiDirectoryNode" />
-              <item name="results" type="462c0819:PsiDirectoryNode" />
-              <item name="linear_regression_tests" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -219,7 +255,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/roeis/Documents/Gradient descent inductive bias/code/input_parser.py" />
   </component>
@@ -338,8 +374,8 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.main (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Python.linear_regression_configuration" />
-        <item index="2" class="java.lang.String" itemvalue="Python.temp" />
+        <item index="1" class="java.lang.String" itemvalue="Python.temp" />
+        <item index="2" class="java.lang.String" itemvalue="Python.linear_regression_configuration" />
         <item index="3" class="java.lang.String" itemvalue="Python.main" />
         <item index="4" class="java.lang.String" itemvalue="Python.tests" />
       </list>
@@ -373,22 +409,30 @@
       <option name="project" value="LOCAL" />
       <updated>1565108284613</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added support for linear regression">
+      <created>1577357409393</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1577357409393</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-1928" y="-213" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24205749" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15138593" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3223684" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5706522" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32730263" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4456522" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5021739" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -425,7 +469,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Started working on simulator new version, almost stable, needs to add configuration file, middle of work commit" />
     <MESSAGE value="In the middle of working on changing from epochs to non zero updates, need to make sure that the module of average over runs works (different array sizes are possible)" />
-    <option name="LAST_COMMIT_MESSAGE" value="In the middle of working on changing from epochs to non zero updates, need to make sure that the module of average over runs works (different array sizes are possible)" />
+    <MESSAGE value="added support for linear regression" />
+    <option name="LAST_COMMIT_MESSAGE" value="added support for linear regression" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -437,13 +482,48 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/temp.py</url>
-          <line>5</line>
-          <option name="timeStamp" value="93" />
+          <line>156</line>
+          <option name="timeStamp" value="134" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/simulator/create_model.py</url>
-          <line>67</line>
-          <option name="timeStamp" value="125" />
+          <url>file://$PROJECT_DIR$/temp.py</url>
+          <line>142</line>
+          <option name="timeStamp" value="135" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/temp.py</url>
+          <line>93</line>
+          <option name="timeStamp" value="136" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/temp.py</url>
+          <line>136</line>
+          <option name="timeStamp" value="137" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/temp.py</url>
+          <line>78</line>
+          <option name="timeStamp" value="138" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/temp.py</url>
+          <line>144</line>
+          <option name="timeStamp" value="139" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/temp.py</url>
+          <line>74</line>
+          <option name="timeStamp" value="140" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/temp.py</url>
+          <line>124</line>
+          <option name="timeStamp" value="141" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/simulator/tests.py</url>
+          <line>144</line>
+          <option name="timeStamp" value="158" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -453,303 +533,337 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="126" />
+      <option name="time" value="159" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/epoch_errors/2019-12-25_18_07.png">
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/model_architecture/2019-12-26_17_53.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/epoch_errors/2019-12-25_18_31.png">
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/model_architecture/2019-12-26_17_54.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/epoch_errors/2019-12-25_18_54.png">
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/batch_errors/2019-12-26_17_47.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/batch_errors/2019-12-25_18_54.png">
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/batch_errors/2019-12-26_17_48.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights_2_norm_vs_fro_ratio/2019-12-25_18_54.png">
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/batch_errors/2019-12-26_17_52.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://C:/Python36/Lib/site-packages/matplotlib/pyplot.py">
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/batch_errors/2019-12-26_17_53.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/batch_errors/2019-12-26_17_54.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/batch_errors/2019-12-26_17_56.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/epoch_errors/2019-12-26_17_47.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/epoch_errors/2019-12-26_17_48.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/epoch_errors/2019-12-26_17_52.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/epoch_errors/2019-12-26_17_53.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/epoch_errors/2019-12-26_17_54.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/epoch_errors/2019-12-26_17_56.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_17_47.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_17_48.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_17_52.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_17_54.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_17_56.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_17_53.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_18_57.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_19_02.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_19_03.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_20_55.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_20_56.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_21_16.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_21_17.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_21_23.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_21_25.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/epoch_errors/2019-12-26_21_27.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_21_27.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/batch_errors/2019-12-26_21_27.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/model_architecture/2019-12-26_21_27.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-1184660488/numpy/random/mtrand.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="1083" column="4" lean-forward="false" selection-start-line="1083" selection-start-column="4" selection-end-line="1083" selection-end-column="4" />
+        <state relative-caret-position="197">
+          <caret line="2079" column="4" lean-forward="false" selection-start-line="2079" selection-start-column="4" selection-end-line="2079" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python36/Lib/site-packages/matplotlib/axes/_axes.py">
+    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/configuration/2019-12-24_18_37.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-103">
-          <caret line="7693" column="8" lean-forward="false" selection-start-line="7693" selection-start-column="8" selection-end-line="7693" selection-end-column="8" />
+        <state relative-caret-position="0">
+          <caret line="0" column="205" lean-forward="false" selection-start-line="0" selection-start-column="205" selection-end-line="0" selection-end-column="205" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_10_13.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_10_19.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model.py">
+    <entry file="file://$PROJECT_DIR$/simulator/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        <state relative-caret-position="66">
+          <caret line="3" column="42" lean-forward="true" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://C:/Python36/Lib/site-packages/tensorflow/python/estimator/model_fn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-228">
-          <caret line="3" column="5" lean-forward="false" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+        <state relative-caret-position="221">
+          <caret line="59" column="28" lean-forward="false" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/train_model.py">
+    <entry file="file://C:/Python36/Lib/site-packages/tensorflow/python/estimator/estimator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="814">
-          <caret line="37" column="49" lean-forward="false" selection-start-line="37" selection-start-column="49" selection-end-line="37" selection-end-column="49" />
+        <state relative-caret-position="-1792">
+          <caret line="108" column="6" lean-forward="false" selection-start-line="108" selection-start-column="6" selection-end-line="108" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/temp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="145" column="51" lean-forward="true" selection-start-line="145" selection-start-column="51" selection-end-line="145" selection-end-column="51" />
           <folding>
-            <element signature="e#0#12#0" expanded="false" />
+            <element signature="e#154#191#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_10_43.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/model_architecture/2019-12-26_10_43.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/model_architecture/2019-12-26_10_45.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_10_45.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/model_architecture/2019-12-26_10_48.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/epoch_errors/2019-12-26_10_48.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/batch_errors/2019-12-26_10_48.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/batch_errors/2019-12-26_10_53.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/epoch_errors/2019-12-26_10_53.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_10_48.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/model_architecture/2019-12-26_11_01.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_10_53.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_11_01.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/create_model.py">
+    <entry file="file://C:/Python36/Lib/site-packages/keras/engine/base_layer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/model_architecture/2019-12-26_10_53.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_11_08.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_11_10.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/model_architecture/2019-12-26_11_10.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/model_architecture/2019-12-26_11_08.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights/2019-12-26_11_14.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights_2_norm_vs_fro_ratio/2019-12-26_11_10.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights_2_norm_vs_fro_ratio/2019-12-26_11_14.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights_values_min_and_max_ratios/2019-12-26_11_14.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/model_architecture/2019-12-26_11_14.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights_values_min_and_max_ratios/2019-12-26_11_19.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights_2_norm_vs_fro_ratio/2019-12-26_11_19.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights_values_min_and_max_ratios/2019-12-25_18_54.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights_2_norm_vs_fro_ratio/2019-12-24_19_21.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights_2_norm_vs_fro_ratio/2019-12-24_22_09.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights_2_norm_vs_fro_ratio/2019-12-25_17_46.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights_2_norm_vs_fro_ratio/2019-12-26_10_45.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/metrics_visualizer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-479">
-          <caret line="57" column="33" lean-forward="false" selection-start-line="57" selection-start-column="4" selection-end-line="57" selection-end-column="33" />
+        <state relative-caret-position="123">
+          <caret line="1046" column="0" lean-forward="false" selection-start-line="1046" selection-start-column="0" selection-end-line="1046" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights_2_norm_vs_fro_ratio/2019-12-26_11_22.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/tests.py">
+    <entry file="file://$PROJECT_DIR$/simulator/input_generator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-699">
-          <caret line="116" column="115" lean-forward="false" selection-start-line="116" selection-start-column="79" selection-end-line="116" selection-end-column="115" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-            <element signature="e#8202#12895#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/configurations/linear_regression_configuration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="34" column="90" lean-forward="false" selection-start-line="34" selection-start-column="90" selection-end-line="34" selection-end-column="90" />
+        <state relative-caret-position="136">
+          <caret line="121" column="0" lean-forward="false" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights_values_min_and_max_ratios/2019-12-26_11_22.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
+    <entry file="file://C:/Python36/Lib/site-packages/keras/optimizers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2332">
+          <caret line="97" column="26" lean-forward="false" selection-start-line="97" selection-start-column="26" selection-end-line="97" selection-end-column="26" />
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights_values_min_and_max_ratios/2019-12-26_11_23.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
+    <entry file="file://$PROJECT_DIR$/simulator/train_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1276">
+          <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/results/linear_regression_tests/weights_2_norm_vs_fro_ratio/2019-12-26_11_23.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
+    <entry file="file://C:/Python36/Lib/site-packages/keras/losses.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/create_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/checks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3940">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="196" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/parameters_initialization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/configurations/linear_regression_configuration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="35" column="25" lean-forward="false" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/metrics_visualizer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/simulator/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="13" column="37" lean-forward="true" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+        <state relative-caret-position="176">
+          <caret line="32" column="75" lean-forward="true" selection-start-line="32" selection-start-column="75" selection-end-line="32" selection-end-column="75" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="142" column="99" lean-forward="true" selection-start-line="142" selection-start-column="99" selection-end-line="142" selection-end-column="99" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#2107#5535#0" expanded="false" />
+            <element signature="e#5610#8302#0" expanded="false" />
+            <element signature="e#9937#14630#0" expanded="false" />
           </folding>
         </state>
       </provider>

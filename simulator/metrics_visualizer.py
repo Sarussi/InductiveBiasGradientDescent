@@ -3,7 +3,7 @@ import os
 import arrow
 import numpy as np
 
-CURRENT_TIME_STR = str(arrow.now().format('YYYY-MM-DD_HH_mm'))
+from simulator.configurations.linear_regression_configuration import CURRENT_TIME_STR
 
 
 def visualize_errors(errors_dictionary, results_path):
@@ -54,6 +54,55 @@ def extract_weights_norms_ratio(weights_values_dictionary):
             weights_values_dictionary[key]]
     return weights_2_vs_fro_norm_ratio
 
+
+# TODO: create a function which extracts the perceptron ratio for neural networks
+# to see wether the perceptron like proof can be extended
+def extract_perceptron_ratio(weights_through_time, w_star):
+    preceptron_ratio = [np.dot(w_star, weight) / (np.linalg.norm(weight) * np.linalg.norm(w_star)) for weight in
+                        weights_through_time]
+    return preceptron_ratio
+
+def visualize_perceptron_ratio(perceptron_ratio,figure_handle=None):
+    if not figure_handle:
+        figure_handle = plt.figure()
+    axis = figure_handle.gca()
+    axis.scatter(range(len(perceptron_ratio)),
+                 perceptron_ratio)
+    axis.set_xlabel('Batches')
+    axis.set_ylabel('Cauchy Shwartz ratio')
+    return figure_handle
+# TODO:Extend it to a non linear case - need to find a way to generate the prediction using the weights values at time t
+#  or equivalently save the model after each batch
+def extract_training_points_regression_loss(weights, x_train, y_train, dimension):
+    def linear_prediction(weights, features_samples, dimension):
+        training_points_predictions = np.dot(np.array(weights).reshape(len(weights), dimension),
+                                             np.transpose(features_samples))
+        return training_points_predictions
+
+    training_predictions = linear_prediction(weights, x_train, dimension)
+    error_trough_training = np.tile(np.reshape(y_train, (1, training_predictions.shape[1])),
+                                    (training_predictions.shape[0], 1)) - training_predictions
+    return error_trough_training
+
+
+def visualize_training_points_regression_loss(points_errors_through_training, abs_val_flag=True, figure_handle=None):
+    if not figure_handle:
+        figure_handle = plt.figure()
+    axis = figure_handle.gca()
+    if abs_val_flag:
+        for train_point_index in range(points_errors_through_training.shape[1]):
+            axis.scatter(range(len(points_errors_through_training[:, train_point_index])),
+                     np.abs(points_errors_through_training[:, train_point_index]),
+                     label='point_index_{index}'.format(index=train_point_index))
+    else:
+        for train_point_index in range(points_errors_through_training.shape[1]):
+            axis.scatter(range(len(points_errors_through_training[:, train_point_index])),
+                     points_errors_through_training[:, train_point_index],
+                     label='point_index_{index}'.format(index=train_point_index))
+    axis.legend()
+    axis.set_xlabel('Batches')
+    axis.set_ylabel('Point_error')
+    return figure_handle
 
 def visualize_weights_norms_ratio(weights_2_vs_fro_norm_ratio,
                                   desired_layers_visualizations_indices_list=None, figure_handle=None,

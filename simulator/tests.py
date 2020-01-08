@@ -2,21 +2,21 @@ import inspect
 import os
 
 import copy
+from itertools import chain
+
 import matplotlib.pyplot as plt
 from simulator import create_model, utils
 from simulator import input_generator
 from simulator import train_model
 from simulator import metrics_visualizer
 from simulator.configurations import simulator_configuration
+from simulator.configurations.linear_regression_configuration import CURRENT_TIME_STR
 from simulator.configurations.utils import set_network_architecture_linearly
 from simulator.utils import array_of_dictionaries_mean
-from simulator.metrics_visualizer import CURRENT_TIME_STR
 import arrow
 import numpy as np
 from simulator.configurations import alons_configuration
 from keras.utils import plot_model
-
-CURRENT_TIME_STR = str(arrow.now().format('YYYY-MM-DD_HH_mm'))
 
 
 def single_model_architecture_one_run(configuration, x_train, y_train, x_test, y_test):
@@ -55,8 +55,10 @@ def single_model_architecture_average_run(configuration):
                                                                                     configuration[
                                                                                         'data'][
                                                                                         'train_test_split_ratio'])
-    cols = list(configuration['model']['network_architecture'].keys())
-    rows = ['Index {i}'.format(i=index) for index in range(configuration['model']['number_of_runs'])]
+    layer_names = list(configuration['model']['network_architecture'].keys())
+    cols = list(chain.from_iterable((col + "_init", col + "_conve") for col in
+                                    layer_names))
+    rows = ['run_{i}'.format(i=index) for index in range(configuration['model']['number_of_runs'])]
     weights_figure, axes = plt.subplots(nrows=len(rows), ncols=len(cols))
     axes = np.array(axes).reshape(len(rows), len(cols))
     for ax, col in zip(axes[0], cols):
@@ -71,16 +73,21 @@ def single_model_architecture_average_run(configuration):
     for iteration_index in range(configuration['model']['number_of_runs']):
         weights, errors, model = single_model_architecture_one_run(configuration, x_train, y_train, x_test,
                                                                    y_test)
-        for layer_index in range(len(cols)):
-            im = axes[iteration_index, layer_index].imshow(weights[cols[layer_index]][0], aspect='auto', vmin=0, vmax=1)
-        weights_figure.subplots_adjust(right=0.8)
-        cbar_ax = weights_figure.add_axes([0.85, 0.15, 0.05, 0.7])
-        weights_figure.colorbar(im, cax=cbar_ax)
-        _, weights_max_min_ratios = metrics_visualizer.extract_weights_values_ratio(weights)
-        weights_max_min_ratios_list.append(weights_max_min_ratios)
-        weights_2_vs_fro_norm_ratio = metrics_visualizer.extract_weights_norms_ratio(weights)
-        weights_norm_ratios_list.append(weights_2_vs_fro_norm_ratio)
-        errors_dict_list.append(errors)
+        layer_index = 0
+        for layer in layer_names:
+            axes[iteration_index, layer_index].imshow(weights[layer][0], aspect='auto', vmin=0, vmax=1)
+            im = axes[iteration_index, layer_index + 1].imshow(weights[layer][-1], aspect='auto', vmin=0,
+                                                               vmax=1)
+            layer_index += 2
+
+    weights_figure.subplots_adjust(right=0.8)
+    cbar_ax = weights_figure.add_axes([0.85, 0.15, 0.05, 0.7])
+    weights_figure.colorbar(im, cax=cbar_ax)
+    _, weights_max_min_ratios = metrics_visualizer.extract_weights_values_ratio(weights)
+    weights_max_min_ratios_list.append(weights_max_min_ratios)
+    weights_2_vs_fro_norm_ratio = metrics_visualizer.extract_weights_norms_ratio(weights)
+    weights_norm_ratios_list.append(weights_2_vs_fro_norm_ratio)
+    errors_dict_list.append(errors)
     # TODO: add support for different sizes of arrays due to zero updates batches! otherwise it won't work
     weights_max_min_ratios_avg = array_of_dictionaries_mean(weights_max_min_ratios_list)
     weights_norm_ratios_avg = array_of_dictionaries_mean(weights_norm_ratios_list)
@@ -123,6 +130,22 @@ def visualize_single_model_architecture_average_run(configuration):
                                                                       "configuration"))
 
 
+def visualize_perceptron_proof_potential(configuration):
+    x_data, y_data = configuration['data']['data_provider'](configuration['data']['sample_size'])
+    x_train, y_train, x_test, y_test = input_generator.train_and_test_shuffle_split(x_data, y_data,
+                                                                                    train_test_split_ratio=
+                                                                                    configuration[
+                                                                                        'data'][
+                                                                                        'train_test_split_ratio'])
+    weights, errors, model = single_model_architecture_one_run(configuration, x_train, y_train, x_test, y_test)
+    perceptron_ratio_time = metrics_visualizer.extract_perceptron_ratio(weights['layer_0'],configuration['data']['w_star'])
+    perceptron_ratio_fig = metrics_visualizer.visualize_perceptron_ratio(perceptron_ratio_time)
+    training_points_loss= metrics_visualizer.extract_training_points_regression_loss(weights['layer_0'],x_train,y_train,configuration['data']['sample_dimension'])
+    training_points_loss_fig = metrics_visualizer.visualize_training_points_regression_loss(training_points_loss)
+    aa=1
+    perceptron_ratio_fig.show()
+    training_points_loss_fig.show()
+#     TODO: create a save to the figs based on the average run visualization
 def visualize_change_learning_rate_and_architecture_average_run(configuration, learning_rate_list,
                                                                 network_architecture_list):
     weights_max_min_figure = plt.figure()
